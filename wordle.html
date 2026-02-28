@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORDLE</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function() {
+            function createBoard() {
+                boardElements = ""
+                for (i = 0; i < 6; i++) {
+                    boardElements += "<tr id='guess" + i + "'> \
+                                        <td id='letter1' class='letter1'>&nbsp;</td> \
+                                        <td id='letter2' class='letter2'>&nbsp;</td> \
+                                        <td id='letter3' class='letter3'>&nbsp;</td> \
+                                        <td id='letter4' class='letter4'>&nbsp;</td> \
+                                        <td id='letter5' class='letter5'>&nbsp;</td> \
+                                    </tr>"
+                }
+                document.getElementById("board").innerHTML = boardElements;
+            }
+
+            function selectAnswer() {
+                return "GAZED";
+            }
+
+            function checkAnswer() {
+                return;
+            }
+
+            createBoard();
+            answer = selectAnswer();
+            console.log(answer);
+        }
+    </script>
+    <h1>WORDLE</h1>
+    <div id='game' class='game'>
+        <table id="board" style="width: 100%; border-collapse: separate;">
+        </table>
+        <input type="text"/>
+        <button>Check Answer</button>
+    </div>
+</body>
+</html>
