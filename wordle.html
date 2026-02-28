@@ -24,24 +24,46 @@
             }
 
             function selectAnswer() {
+                console.log("GAZED");
                 return "GAZED";
             }
 
+            createBoard();
+            actual = selectAnswer();
+            currGuess = 0;
+
+            document.getElementById("checkAnswer").onclick = checkAnswer;
+
             function checkAnswer() {
-                return;
+                guess = document.getElementById("user-guess").value.toUpperCase();
+                // console.log(guess);
+                document.getElementById("user-guess").value = "";
+                if (guess.length != 5 && guess.length != 0) {
+                    alert("Your guess must be 5 letters!")
+                    return;
+                }
+                handleGuess(guess);
+                // console.log("valid guess");
             }
 
-            createBoard();
-            answer = selectAnswer();
-            console.log(answer);
+            function handleGuess(guess) {
+                boxes = document.getElementById("guess" + currGuess).children;
+                if (guess) {
+                    guess.split('').forEach(function(char, i) {
+                        console.log(char);
+                        boxes[i].innerHTML = char;
+                    });
+                }
+                currGuess += 1;
+            }
         }
     </script>
     <h1>WORDLE</h1>
     <div id='game' class='game'>
         <table id="board" style="width: 100%; border-collapse: separate;">
         </table>
-        <input type="text"/>
-        <button>Check Answer</button>
+        <input type="text" id="user-guess" class="user-guess"/>
+        <button id="checkAnswer" class="checkAnswer">Check Answer</button>
     </div>
 </body>
 </html>
