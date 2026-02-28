@@ -55,6 +55,13 @@
                     });
                 }
                 currGuess += 1;
+                if (currGuess >= 6) {
+                    gameLost();
+                }
+            }
+
+            function gameLost() {
+                alert("Game Over! The correct answer was: " + actual);
             }
         }
     </script>
