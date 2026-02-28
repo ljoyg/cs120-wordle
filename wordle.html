@@ -9,6 +9,14 @@
 <body>
     <script>
         window.onload = function() {
+            game = {
+                answer: selectAnswer(),
+                currGuess: 0,
+                nextGuess() {
+                    this.currGuess += 1;
+                }
+            }
+
             function createBoard() {
                 boardElements = ""
                 for (i = 0; i < 6; i++) {
@@ -29,8 +37,6 @@
             }
 
             createBoard();
-            actual = selectAnswer();
-            currGuess = 0;
 
             document.getElementById("checkAnswer").onclick = checkAnswer;
 
@@ -47,21 +53,21 @@
             }
 
             function handleGuess(guess) {
-                boxes = document.getElementById("guess" + currGuess).children;
+                boxes = document.getElementById("guess" + game.currGuess).children;
                 if (guess) {
                     guess.split('').forEach(function(char, i) {
                         console.log(char);
                         boxes[i].innerHTML = char;
                     });
                 }
-                currGuess += 1;
-                if (currGuess >= 6) {
+                game.nextGuess();
+                if (game.currGuess >= 6) {
                     gameLost();
                 }
             }
 
             function gameLost() {
-                alert("Game Over! The correct answer was: " + actual);
+                alert("Game Over! The correct answer was: " + game.answer);
             }
         }
     </script>
