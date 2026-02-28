@@ -56,8 +56,12 @@
                 boxes = document.getElementById("guess" + game.currGuess).children;
                 if (guess) {
                     guess.split('').forEach(function(char, i) {
-                        console.log(char);
                         boxes[i].innerHTML = char;
+                        if (game.answer.split('')[i] == char) {
+                            boxes[i].classList.add("correct");
+                        } else {
+                            boxes[i].classList.add("incorrect");
+                        }
                     });
                 }
                 game.nextGuess();
