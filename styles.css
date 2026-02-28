@@ -25,8 +25,7 @@ table {
 
 td {
     overflow: hidden;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 1px solid lightgray;
 }
 
 tr {
@@ -35,14 +34,17 @@ tr {
 
 .correct {
     background-color: #6ca965;
+    border: none;
 }
 
 .included {
     background-color: #c8b653;
+    border: none;
 }
 
 .incorrect {
     background-color: #787c7f;
+    border: none;
 }
 
 

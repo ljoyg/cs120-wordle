@@ -32,8 +32,8 @@
             }
 
             function selectAnswer() {
-                console.log("GAZED");
-                return "GAZED";
+                console.log("ALLOW");
+                return "ALLOW";
             }
 
             createBoard();
@@ -55,10 +55,14 @@
             function handleGuess(guess) {
                 boxes = document.getElementById("guess" + game.currGuess).children;
                 if (guess) {
+                    answerArr = game.answer.split('');
                     guess.split('').forEach(function(char, i) {
                         boxes[i].innerHTML = char;
-                        if (game.answer.split('')[i] == char) {
+                        if (answerArr[i] == char) {
                             boxes[i].classList.add("correct");
+                            answerArr[i] = 0;
+                        } else if (answerArr.includes(char)) {
+                            boxes[i].classList.add("included");
                         } else {
                             boxes[i].classList.add("incorrect");
                         }
