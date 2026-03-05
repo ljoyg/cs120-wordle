@@ -42,14 +42,12 @@
 
             function checkAnswer() {
                 guess = document.getElementById("user-guess").value.toUpperCase();
-                // console.log(guess);
                 document.getElementById("user-guess").value = "";
                 if (guess.length != 5 && guess.length != 0) {
                     alert("Your guess must be 5 letters!")
                     return;
                 }
                 handleGuess(guess);
-                // console.log("valid guess");
             }
 
             function handleGuess(guess) {
@@ -63,6 +61,7 @@
                             answerArr[i] = 0;
                         } else if (answerArr.includes(char)) {
                             boxes[i].classList.add("included");
+                            answerArr[answerArr.indexOf(char)] = 0;
                         } else {
                             boxes[i].classList.add("incorrect");
                         }
