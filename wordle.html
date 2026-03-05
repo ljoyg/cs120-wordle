@@ -66,7 +66,9 @@
             }
 
             function selectAnswer() {
-                console.log("ALLOW");
+                answer = fetch("https://random-word-api.herokuapp.com/word?length=5")
+                // .then(res => res.text())
+                console.log(answer);
                 return "ALLOW";
             }
 
