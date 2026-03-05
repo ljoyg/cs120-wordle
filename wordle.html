@@ -10,10 +10,21 @@
     <script>
         window.onload = function() {
             game = {
-                answer: selectAnswer(),
+                answer: "",
                 currGuess: 0,
                 nextGuess() {
                     this.currGuess += 1;
+                },
+                setAnswer() {
+                    res = fetch("https://random-word-api.herokuapp.com/word?length=5&diff=2")
+                    .then(res => res.text())
+                    .then(data => {
+                        data = JSON.parse(data);
+                        this.answer = JSON.stringify(data[0]).replace('"', '').replace('"', '').toUpperCase();
+                        console.log(this.answer);
+                        console.log(this.answer.split(''))
+                    })
+                    .catch(error => console.log(error));
                 }
             }
 
@@ -65,19 +76,7 @@
                 document.getElementById("letter-table").innerHTML = tableElements;
             }
 
-            async function selectAnswer() {
-                const url = 'https://random-word-api.herokuapp.com/word?length=5';
-                try {
-                    const response = await fetch(url);
-                    const result = await response.text();
-                    answer = JSON.parse(result)[0];
-                } catch (error) {
-                    console.error(error);
-                }
-                console.log(answer);
-                return answer;
-            }
-
+            game.setAnswer();
             createBoard();
             createLetterTable();
 
