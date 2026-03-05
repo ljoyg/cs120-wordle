@@ -51,4 +51,8 @@ tr {
     border: none;
 }
 
+.hidden {
+    display: none;
+}
+
 

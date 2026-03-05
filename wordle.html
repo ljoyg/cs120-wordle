@@ -39,6 +39,7 @@
             createBoard();
 
             document.getElementById("checkAnswer").onclick = checkAnswer;
+            document.getElementById("restart-button").onclick = restart;
 
             function checkAnswer() {
                 guess = document.getElementById("user-guess").value.toUpperCase();
@@ -67,14 +68,33 @@
                         }
                     });
                 }
+                if (guess == game.answer) {
+                    win();
+                    allowRestart();
+                }
                 game.nextGuess();
                 if (game.currGuess >= 6) {
-                    gameLost();
+                    lose();
                 }
             }
 
-            function gameLost() {
-                alert("Game Over! The correct answer was: " + game.answer);
+            const lose = () => alert("Game Over! The correct answer was: " + game.answer);
+            const win = () => alert("Congratulations! You correctly guessed the word: " + game.answer); 
+
+            function allowRestart() {
+                document.getElementById("user-guess").classList.toggle("hidden");
+                document.getElementById("checkAnswer").classList.toggle("hidden");
+                document.getElementById("restart-button").classList.toggle("hidden");
+            }
+
+            function restart() {
+                document.getElementById("user-guess").classList.toggle("hidden");
+                document.getElementById("checkAnswer").classList.toggle("hidden");
+                document.getElementById("restart-button").classList.toggle("hidden");
+                game.answer = selectAnswer();
+                game.currGuess = 0;
+                document.getElementById("board").innerHTML = "";
+                createBoard();
             }
         }
     </script>
@@ -82,8 +102,12 @@
     <div id='game' class='game'>
         <table id="board" style="width: 100%; border-collapse: separate;">
         </table>
-        <input type="text" id="user-guess" class="user-guess"/>
-        <button id="checkAnswer" class="checkAnswer">Check Answer</button>
+        <input type="text" id="user-guess"/>
+        <button id="checkAnswer">Check Answer</button>
+        <button id="restart-button" class="hidden">New Game</button>
+        <div id="letterboard">
+            
+        </div>
     </div>
 </body>
 </html>
