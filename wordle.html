@@ -65,11 +65,17 @@
                 document.getElementById("letter-table").innerHTML = tableElements;
             }
 
-            function selectAnswer() {
-                answer = fetch("https://random-word-api.herokuapp.com/word?length=5")
-                // .then(res => res.text())
+            async function selectAnswer() {
+                const url = 'https://random-word-api.herokuapp.com/word?length=5';
+                try {
+                    const response = await fetch(url);
+                    const result = await response.text();
+                    answer = JSON.parse(result)[0];
+                } catch (error) {
+                    console.error(error);
+                }
                 console.log(answer);
-                return "ALLOW";
+                return answer;
             }
 
             createBoard();
