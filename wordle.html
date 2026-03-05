@@ -100,13 +100,44 @@
     </script>
     <h1>WORDLE</h1>
     <div id='game' class='game'>
-        <table id="board" style="width: 100%; border-collapse: separate;">
+        <table id="board" class="board" style="width: 100%; border-collapse: separate;">
         </table>
         <input type="text" id="user-guess"/>
         <button id="checkAnswer">Check Answer</button>
         <button id="restart-button" class="hidden">New Game</button>
-        <div id="letterboard">
-            
+        <div id="letter-board" class="letter-board">
+            <table id="letter-table" class="letter-table">
+                <tr id="q-d">
+                    <td id="Q">Q</td>
+                    <td id="W">W</td>
+                    <td id="E">E</td>
+                    <td id="R">R</td>
+                    <td id="T">T</td>
+                    <td id="Y">Y</td>
+                    <td id="U">U</td>
+                    <td id="I">I</td>
+                    <td id="O">O</td>
+                    <td id="P">P</td>
+                    <td id="A">A</td>
+                    <td id="S">S</td>
+                    <td id="D">D</td>
+                </tr> 
+                <tr id="f-m">
+                    <td id="F">F</td>
+                    <td id="G">G</td>
+                    <td id="H">H</td>
+                    <td id="J">J</td>
+                    <td id="K">K</td>
+                    <td id="L">L</td>
+                    <td id="Z">Z</td>
+                    <td id="X">X</td>
+                    <td id="C">C</td>
+                    <td id="V">V</td>
+                    <td id="B">B</td>
+                    <td id="N">N</td>
+                    <td id="M">M</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

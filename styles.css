@@ -13,17 +13,19 @@ h1, table, td, tr {
     font-weight: 600;
 }
 
-table, td, tr {
+.board, .board td, .board tr {
     font-size: larger;
     color: #ffffff;
 }
 
-table {
+.board {
     empty-cells: show;
     border-spacing: 10px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-td, th {
+.board td, .board th {
     width: 20%;
 }
 
@@ -32,27 +34,49 @@ td {
     border: 1px solid lightgray;
 }
 
-tr {
+.board tr {
     height: 100px;
 }
 
 .correct {
     background-color: #6ca965;
     border: none;
+    color: #ffffff;
 }
 
 .included {
     background-color: #c8b653;
     border: none;
+    color: #ffffff;
 }
 
 .incorrect {
     background-color: #787c7f;
     border: none;
+    color: #ffffff;
 }
 
 .hidden {
     display: none;
+}
+
+.letter-table {
+    margin: 0 auto;
+    border-collapse: separate;
+    padding: 10px;
+    align-items: center;
+}
+
+.letter-board td {
+    font-size: large;
+    width: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.letter-board tr {
+    display: block;
+    align-self: center;
 }
 
 
