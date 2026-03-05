@@ -139,7 +139,7 @@
                 document.getElementById("user-guess").classList.toggle("hidden");
                 document.getElementById("checkAnswer").classList.toggle("hidden");
                 document.getElementById("restart-button").classList.toggle("hidden");
-                game.answer = selectAnswer();
+                game.setAnswer();
                 game.currGuess = 0;
                 document.getElementById("board").innerHTML = "";
                 createBoard();
